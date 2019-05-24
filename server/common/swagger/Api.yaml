@@ -1,0 +1,70 @@
+swagger: "2.0"
+info:
+  version: 2.5.0
+  title: Inscription backend
+  description: Backend API for webapp Edacy
+basePath: /api/v1
+tags:
+  - name: Examples
+    description: Simple example endpoints
+  - name: Specification
+    description: The swagger API specification
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+definitions:
+  UserBody:
+    type: object
+    title: user
+    properties:
+      prenom: 
+        type: string
+        required: true
+      nom: 
+        type: string
+        required: true
+      couriel:
+        type: string
+        required: true
+      password:
+        type: string
+        required: true
+
+       
+ 
+paths:
+  
+  /users:
+    get:
+      tags:
+        - Users
+      description: Fetch all users
+      responses:
+        200:
+          description: Returns all users
+    post:
+      tags:
+        - Users
+      description: Create a new User
+      parameters:
+        - name: body
+          in: body
+          description: an example
+          required: true
+          schema: 
+            $ref: "#/definitions/UserBody"
+      responses:
+        200:
+          description: Returns all examples    
+ 
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification

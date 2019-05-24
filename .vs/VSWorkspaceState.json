@@ -1,0 +1,13 @@
+{
+  "ExpandedNodes": [
+    "",
+    "\\server",
+    "\\server\\api",
+    "\\server\\api\\controllers",
+    "\\server\\common",
+    "\\server\\common\\config\\environment",
+    "\\server\\config"
+  ],
+  "SelectedNode": "\\server\\common\\server.ts",
+  "PreviewInSolutionExplorer": false
+}

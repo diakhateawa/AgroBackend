@@ -1,0 +1,123 @@
+swagger: "2.0"
+info:
+  version: 2.5.0
+  title: Inscription backend
+  description: Backend API for webapp Edacy
+basePath: /api/v1
+tags:
+  - name: Examples
+    description: Simple example endpoints
+  - name: Specification
+    description: The swagger API specification
+
+consumes:
+  - application/json
+produces:
+  - application/json
+
+
+definitions:
+  EcoleBody:
+    type: object
+    title: ecole
+    required:
+      - nom
+    properties:
+      nom:
+        type: string
+        example: edcacy
+      description:
+        type: string
+        example: no_stress
+  InscriptionBody:
+    type: object
+    title: inscriptions
+    required:
+      - nom
+    properties:
+      nom:
+        type: string
+        example: moussa
+      prenom:
+        type: string
+        example: moussa
+      telephone:
+        type: string
+        example: moussa
+      ecole:
+        type: string
+        example: moussa
+      adresse:
+        type: string
+        example: moussa
+
+paths:
+  
+  /inscriptions/ecoles:
+    get:
+      tags:
+        - Ecoles
+      description: Fetch all ecoles
+      responses:
+        200:
+          description: Returns all ecoles
+    post:
+      tags:
+        - Ecoles
+      description: Create a new Ecole
+      parameters:
+        - name: Ecole
+          in: body
+          description: an example
+          required: true
+          schema: 
+            $ref: "#/definitions/EcoleBody"
+      responses:
+        200:
+          description: Returns all examples
+  /inscriptions:
+    get:
+      tags:
+        - Inscriptions
+      description: Fetch all Inscriptions
+      responses:
+        200:
+          description: Returns all Inscriptions
+    post:
+      tags:
+        - Inscriptions
+      description: Create a new Inscription
+      parameters:
+        - name: inscription
+          in: body
+          description: an example
+          required: true
+          schema: 
+            $ref: "#/definitions/InscriptionBody"
+      responses:
+        200:
+          description: Returns all examples
+
+  /inscription/{id}:
+    get:
+      tags:
+        - Inscriptions
+      parameters:
+        - name: id
+          in: path
+          required: true
+          description: The id of the Inscription to retrieve
+          type: integer
+      responses:
+        200:
+          description: Return the Inscription with the specified id
+        404:
+          description: Inscription not found
+
+  /spec:
+    get:
+      tags:
+        - Specification
+      responses:
+        200:
+          description: Return the API specification
